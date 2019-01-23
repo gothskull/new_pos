@@ -30,7 +30,7 @@
                                 <div class="col-12">
                                     <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a>
                                     <label for="password">Contraseña</label>
-                                    <input class="form-control" type="password" required="" id="password" placeholder="Ingresa tu contrasea" name="password">
+                                    <input class="form-control" type="password" required="" id="ingPassword" placeholder="Ingresa tu contrasea" name="ingPassword">
                                 </div>
                             </div>
 

@@ -1,0 +1,15 @@
+.parsley-errors-list
+{
+	width: 100%;
+}
+
+ul.parsley-errors-list,.filled
+{
+	width: 100%!important;
+}
+
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+  content: "Buscar...";
+  background-color: $principal;
+  color: $blanco;
+}

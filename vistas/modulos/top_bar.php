@@ -4,12 +4,12 @@
 
         <ul class="list-unstyled topbar-right-menu float-right mb-0">
 
-            <li class="hide-phone app-search">
+           <!--  <li class="hide-phone app-search">
                 <form>
                     <input type="text" placeholder="Buscar..." class="form-control">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
-            </li>
+            </li> -->
 
             <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button"
@@ -134,14 +134,14 @@
                 <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
                    aria-haspopup="false" aria-expanded="false">
                     <?php 
-                        if($_SESSION['foto'] != "")
+                        if($_SESSION['foto_usuario'] != "" )
                         { ?>
-                            <img src="<?php echo $_SESSION['foto'] ?>" alt="user" class="rounded-circle">
+                            <img src="<?php echo $_SESSION['foto_usuario'] ?>" alt="user" class="rounded-circle">
                         <?php } else { ?>
                             <img src="vistas/assets/images/users/user.png" alt="user" class="rounded-circle">
                         <?php }
                     ?>
-                    <span class="ml-1"><?php echo $_SESSION['usuario'] ?><i class="mdi mdi-chevron-down"></i> </span>
+                    <span class="ml-1"><?php echo $_SESSION['nombre_usuario'] ?><i class="mdi mdi-chevron-down"></i> </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                     <!-- item-->

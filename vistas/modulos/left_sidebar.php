@@ -35,8 +35,14 @@
             </li>
 
             <li>
-                <a href="usuarios"><i class="fa fa-user-o"></i> <span> Usuarios </span> <span class="menu-arrow"></span></a>
+                <a href="#"><i class="fa fa-user-o"></i> <span> Usuarios </span> <span class="menu-arrow"></span></a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li><a href="usuarios"><i class="fa fa-user-o"></i> Lista de Usuarios</a></li>
+                    <li><a href="ventas"><i class="fa fa-list-alt"></i> Roles y Permisos</a></li>
+                    <li><a href="vales"><i class="fa fa-dollar"></i> Vales</a></li>
+                </ul>
             </li>
+            
 
             <li>
                 <a href="categorias"><i class="fi-layers"></i><span> Categorías </span> <span class="menu-arrow"></span></a>

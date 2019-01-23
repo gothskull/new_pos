@@ -1,90 +1,79 @@
-// PENDIENTE        $('#formularioUser')[0].reset();
-
 var 
     nombreUsuario = $('#nombre_usuario'),
     correo        = $('#correo'),
-    foto_usuario  = $('#foto_usuario'),
-    estado        = $('#estado'),
-    perfil_id     = $('#perfil_id'),
-    errorEstado   = $('#errorEstado'),
     formUserAdd   = $('#formUserAdd'),
     formUserEdit  = $('#formUserEdit'),
     tablaUsuarios = $('#tablaUsuarios')
 ;
 
-function init()
-{
-    formUserEdit.parsley();
-    formUserAdd.parsley();
-
-    datatable_config();
-}
-
-
-
-init();
-
 /**
  * DtataTables 
  */
-function datatable_config()
-{
-    tablaUsuarios.DataTable({
-            "aProcessing": true,//Activamos el procesamiento del datatables
-            "aServerSide": true,//Paginación y filtrado realizados por el servidor
-            dom: 'Bfrtip',//Definimos los elementos del control de tabla
-            buttons: [                
-                        'copyHtml5',
-                        'excelHtml5',
-                        'csvHtml5',
-                        'pdf'
-                    ],
-            // "ajax" : 
-            //         {
-            //             url : '../ajax/categoria.php?op=listar',
-            //             type : "get",
-            //             dataType : "json",
-            //             error : function(e){
-            //                 console.log(e.responseText);
-            //             }
-            //         },
-            "bDestroy": true,
-            "iDisplayLength": 8,//Paginación
-            "order": [[ 0, "desc" ]],//Ordenar (columna,orden)
-        "language" : {
-            "sProcessing"     : "Procesando...",
-            "sLengthMenu"     :    "Mostrar _MENU_ registros",
-            "sZeroRecords"    :    "No se encontraron resultados",
-            "sEmptyTable"     :    "No hay datos disponibles para esta tabla",
-            "sInfo"           :    "Mostrando registros del <b>_START_</b> al <b>_END_</b> de un total de <b>_TOTAL_</b>",
-            "sInfoEmpty"      :    "Mostrando registros del <b>0</b> al <b>0</b> de un total de <b>0</b>",
-            "sInfoFiltered"   :    "(Filtrado de un total de <b>_MAX_</b> registros)",
-            "sInfoPosFix"     :    "",
-            "sSearch"         :    "Buscar:",
-            "sUrl"            :    "",
-            "sInfoThousands"  :    ",",
-            "sLoadingRecords" :    "Cargando",
-            "oPaginate"       :    {
-                "sFirst"      :    "Primero",
-                "sLast"       :    "Último",
-                "sNext"       :    "Siguiente",
-                "sPrevious"   :    "Anterior",
-            },
-            "oAria"           :    {
-                "sSortAscending"     :    "Activar para ordenar la columna de manera ascendente",
-                "sSortDescending"    :    "Activar para ordenar la columna de manera descendente",
-            }
-        }
-    });
-}
+  
+tablaUsuarios.DataTable({
+        "aProcessing": true,//Activamos el procesamiento del datatables
+        "aServerSide": true,//Paginación y filtrado realizados por el servidor
+        dom: 'Bfrtip',//Definimos los elementos del control de tabla
+        buttons: [                
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdf'
+                ],
+        // "ajax" : 
+        //         {
+        //             url : '../ajax/categoria.php?op=listar',
+        //             type : "get",
+        //             dataType : "json",
+        //             error : function(e){
+        //                 console.log(e.responseText);
+        //             }
+        //         },
+        "bDestroy": true,
+        "iDisplayLength": 8,//Paginación
+        "order": [[ 0, "desc" ]],//Ordenar (columna,orden)
+	"language" : {
+		"sProcessing"     : "Procesando...",
+		"sLengthMenu"     :    "Mostrar _MENU_ registros",
+		"sZeroRecords"    :    "No se encontraron resultados",
+		"sEmptyTable"     :    "No hay datos disponibles para esta tabla",
+		"sInfo"           :    "Mostrando registros del <b>_START_</b> al <b>_END_</b> de un total de <b>_TOTAL_</b>",
+		"sInfoEmpty"      :    "Mostrando registros del <b>0</b> al <b>0</b> de un total de <b>0</b>",
+		"sInfoFiltered"   :    "(Filtrado de un total de <b>_MAX_</b> registros)",
+		"sInfoPosFix"     :    "",
+		"sSearch"         :    "Buscar:",
+		"sUrl"            :    "",
+		"sInfoThousands"  :    ",",
+		"sLoadingRecords" :    "Cargando",
+		"oPaginate"       :    {
+			"sFirst"      :    "Primero",
+			"sLast"       :    "Último",
+			"sNext"       :    "Siguiente",
+			"sPrevious"   :    "Anterior",
+		},
+		"oAria"           :    {
+			"sSortAscending"     :    "Activar para ordenar la columna de manera ascendente",
+			"sSortDescending"    :    "Activar para ordenar la columna de manera descendente",
+		}
+	}
+});
 
-    
-
+    /**
+     * Agregar Nuevo Usuario 
+     */
+      $('#addUser').on('click',function(){
+        $('#signup-modal .modal-header h3:nth-child(2)').addClass('d-none');
+        $('#signup-modal .modal-header h3:nth-child(1)').removeClass('d-none');
+        $('#formularioUser')[0].reset();
+        $('#errorCorreo').addClass('d-none');
+      });
 
 	/**
 	 * Validación de formulario 
 	 */
-    
+	  
+    formUserAdd.parsley();
+    formUserEdit.parsley();
     formUserAdd.on('submit',function(){
     	var usuario = nombreUsuario.val();
         
@@ -119,7 +108,7 @@ function datatable_config()
             contentType : false,
             processData : false,
     		success:function(respuesta){
-    			// console.log("la respuesta fue " + respuesta);
+    			// console.log(respuesta);
     			if(respuesta != "")
     			{
     				$('#errorCorreo').removeClass('d-none');
@@ -194,7 +183,7 @@ function datatable_config()
           
     });
     /**
-     * Cancelar edición 
+     * Canclar edición 
      */
     $('.cancelEditUser').on('click',function(){
         $('#edicionUsuarios').addClass('d-none');
@@ -226,26 +215,11 @@ function datatable_config()
             contentType : false,
             processData : false,
             success:function(resp){
-                // console.log("respuesta final es: " + resp.foto_usuario);
-                $('#nvo_nombre_usuario').val(resp.nombre_usuario);
-                $('#nvo_apellidos_usu').val(resp.apellidos_usu);
-                $('#nvo_num_identificacion').val(resp.num_identificacion);
-                $('#nvo_password').val("");
-                $('#nva_direccion').val(resp.direccion);
-                $('#nvo_tipo_sangre').val(resp.tipo_sangre);
-                $('#nvo_telefono_usu').val(resp.telefono_usu);
-                $('#nvo_telefono_usu').val(resp.telefono_usu);
-                $('#nvo_correo').val(resp.correo);
-                $('#nvo_correo').val(resp.correo);
-                $('#nvo_titulo_perfil').html(resp.nombre_usuario + " " + resp.apellidos_usu);
-                
-                if(resp.foto_usuario != null)
-                {
-                    $('.foto_edicion').attr('src',resp.foto_usuario);
-                } else {
-                    $('.foto_edicion').attr('src','vistas/assets/images/users/user.png');
-                }
-                
+                console.log(resp);
+                nombreUsuario.attr('value',resp.nombreUsuario);
+                correo.attr('value',resp.correo);
+                $('#optPerfil').html(resp["perfil"]);
+                formUserAdd.reset();
             },
             error:function(x,y,z){
                 console.log(x);

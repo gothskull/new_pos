@@ -15,6 +15,7 @@
         <!-- DataTables -->
         <link href="vistas/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <link href="vistas/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="vistas/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <!-- Responsive datatable examples -->
         <link href="vistas/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
@@ -32,6 +33,8 @@
         <link href="vistas/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
         <link href="vistas/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="vistas/plugins/switchery/switchery.min.css" />
+        <!-- MIS ESTILOS -->
+        <link rel="stylesheet" href="vistas/css/custom.css" />
 
         <script src="vistas/assets/js/modernizr.min.js"></script>
 
@@ -43,7 +46,7 @@
         {
             
         ?>
-    <body class="enlarged" data-keep-enlarged="true">
+    <body >
 
                 <!-- Begin page -->
                 <div id="wrapper">
@@ -86,7 +89,8 @@
                                            $_GET['ruta'] == 'crear-venta' ||
                                            $_GET['ruta'] == 'inicio' ||
                                            $_GET['ruta'] == 'categorias' ||
-                                           $_GET['ruta'] == 'salir')
+                                           $_GET['ruta'] == 'salir' ||
+                                           $_GET['ruta'] == 'vales') 
                                         {
                                            require_once "modulos/" . $_GET['ruta'] . ".php"; 
                                         } else {
@@ -100,11 +104,11 @@
 
                             </div> <!-- container -->
 
-                        </div> <!-- content -->
-
-                        <footer class="footer">
+                        <footer class="footer text-center">
                             Diseño y Desarrollo Hernando J. Chaves <?php echo date('Y') ?> | Todos los derechos reservados
                         </footer>
+                        </div> <!-- content -->
+
 
                     </div>
             <?php 
@@ -155,6 +159,14 @@
         <!-- Required datatable js -->
         <script src="vistas/plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="vistas/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+        <!-- Buttons examples -->
+        <script src="vistas/plugins/datatables/dataTables.buttons.min.js"></script>
+        <script src="vistas/plugins/datatables/buttons.bootstrap4.min.js"></script>
+        <script src="vistas/plugins/datatables/jszip.min.js"></script>
+        <script src="vistas/plugins/datatables/pdfmake.min.js"></script>
+        <script src="vistas/plugins/datatables/vfs_fonts.js"></script>
+        <script src="vistas/plugins/datatables/buttons.html5.min.js"></script>
+        <script src="vistas/plugins/datatables/buttons.print.min.js"></script>
         <!-- Responsive examples -->
         <script src="vistas/plugins/datatables/dataTables.responsive.min.js"></script>
         <script src="vistas/plugins/datatables/responsive.bootstrap4.min.js"></script>
